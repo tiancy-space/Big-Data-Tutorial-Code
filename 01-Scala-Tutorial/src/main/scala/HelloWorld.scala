@@ -1,5 +1,5 @@
 /**
- * @Description:
+ * @Description: 搭建Scala环境.
  * @Author: tiancy
  * @Create: 2022/5/31
  */
