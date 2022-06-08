@@ -10,7 +10,7 @@ object Scala02_for {
           for( 循环变量  <- 数据集){  循环体 }
      */
     for(i <- "abc" ){
-      println("i = " + i )
+      println("i = " + i ) // [a,b,c]
     }
 
     println("--------------------")
