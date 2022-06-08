@@ -35,6 +35,7 @@ object Scala12_function {
 
     //operator( println( "haha")  )
 
+    // 定义一个名字为operator的代码块,通过当前 op 这个变量来传递当前段代码.
     operator{
 
       var age : Int = 30
