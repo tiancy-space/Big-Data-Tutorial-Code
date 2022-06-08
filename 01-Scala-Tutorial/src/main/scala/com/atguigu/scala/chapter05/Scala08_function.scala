@@ -59,7 +59,9 @@ object Scala08_function {
 
     var f : String =>String  = fvar
 
+    // 创建一个匿名函数: (name:String)=>{ name * 2 } ,并将这个匿名函数赋值给变量ff,并声明当前变量类型为函数类型.
     var ff : String => String = (name:String)=>{ name * 2 }
+    println(ff("tiancy")) // tiancytiancy
 
 
 
