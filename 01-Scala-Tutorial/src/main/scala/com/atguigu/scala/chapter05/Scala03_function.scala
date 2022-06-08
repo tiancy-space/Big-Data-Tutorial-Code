@@ -13,9 +13,9 @@ object Scala03_function {
       println("names = " + names)
     }
 
-    fun1()
-    fun1("zhangsan")
-    fun1("zhangsan","lisi")
+    fun1() // names = List()
+    fun1("zhangsan") // names = WrappedArray(zhangsan)
+    fun1("zhangsan","lisi") // names = WrappedArray(zhangsan, lisi)
 
     def fun2(age : Int, names: String*  ):Unit = {
       println("names = " + names)
@@ -27,18 +27,18 @@ object Scala03_function {
       println( s"name = $name , password = $password")
     }
 
-    fun3("wangwu")
+    fun3("wangwu") // name = wangwu , password = 000000
 
-    fun3("wangwu","123456")
+    fun3("wangwu","123456") // name = wangwu , password = 123456
 
     //3. 带名参数
     def fun4(name : String, password :String = "000000" , address : String  ) : Unit = {
       println( s"name = $name , password = $password , address = $address")
     }
 
-    fun4("zhaoliu","111111","beijing")
+    fun4("zhaoliu","111111","beijing") // name = zhaoliu , password = 111111 , address = beijing
 
-    fun4("zhaoliu", address = "shanghai")
+    fun4("zhaoliu", address = "shanghai") // name = zhaoliu , password = 000000 , address = shanghai
 
 
   }
