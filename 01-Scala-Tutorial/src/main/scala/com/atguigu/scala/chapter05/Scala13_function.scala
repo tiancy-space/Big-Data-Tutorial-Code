@@ -32,7 +32,8 @@ object Scala13_function {
     //sum1(2,5 + 4 + 3 +  1)      => sum1(1,5 + 4 + 3 + 2 + 1 )
     //sum1(1,5 + 4 + 3 + 2 + 1 )  =>  5 + 4 + 3 + 2 + 1
 
-    def sum1(num: Int , result : Int ) :Int = {
+    @scala.annotation.tailrec
+    def sum1(num: Int, result : Int ) :Int = {
       if(num == 1) {
         result
       }else{
