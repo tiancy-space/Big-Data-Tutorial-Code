@@ -1,4 +1,6 @@
-package com.atguigu.scala
+package com
+package atguigu
+package scala
 
 /**
   * 包对象
@@ -10,5 +12,9 @@ package object chapter06 {
 
   def testPackage(): Unit ={
     println("testPackage....")
+  }
+
+  def test(): Unit = {
+    println(" ss")
   }
 }
