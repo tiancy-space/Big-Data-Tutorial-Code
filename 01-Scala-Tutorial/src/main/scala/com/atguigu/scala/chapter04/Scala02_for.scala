@@ -24,13 +24,13 @@ object Scala02_for {
       println("i = " + i)
     }
     println("---------------------")
-
+    // Range.inclusive(1,5)方法使用说明: 使用步长值 1 从开始到结束创建一个包含范围。
     for(i <- Range.inclusive(1,5)){
       println("i = " + i )
     }
     println("---------------------")
-    for(i <- Range(1,5)){   // apply
-      println("i = " + i )
+    for(i <- Range(1,5)){   // 直接调用Range类的的apply方法,避免了通过new当前类产生对象的过程.步长为1,不包含后面的5
+      println("i = " + i ) // 1 to 4
     }
 
 
