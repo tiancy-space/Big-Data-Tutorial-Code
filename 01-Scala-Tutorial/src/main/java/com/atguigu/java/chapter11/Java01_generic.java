@@ -75,7 +75,7 @@ public class Java01_generic {
         //test2(arrayList4);
 
 
-        //4. 泛型不可变,还会存在一个概念: 泛型的协变、逆变、不可变可以参考:  https://juejin.cn/post/6952434934589947912
+        //4. 泛型不可变(使用泛型时,前后的泛型类型要保持一致),还会存在一个概念: 泛型的协变、逆变、不可变可以参考:  https://juejin.cn/post/6952434934589947912
         AAA<Parent> parentAAA = new AAA<Parent>();
         AAA<User> userAAA = new AAA<User>();
         AAA<SubUser> subUserAAA = new AAA<SubUser>();
