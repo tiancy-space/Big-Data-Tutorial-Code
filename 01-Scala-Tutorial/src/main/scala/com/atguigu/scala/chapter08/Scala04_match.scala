@@ -1,8 +1,9 @@
 package com.atguigu.scala.chapter08
 
-/**
-  * Scala - 模式匹配 - 样例类
-  */
+/*
+  TODO Scala - 模式匹配 - 样例类
+    样例类的定义、单例对象、apply()方法以及提取器unapply()方法.
+ */
 object Scala04_match {
 
   def main(args: Array[String]): Unit = {
