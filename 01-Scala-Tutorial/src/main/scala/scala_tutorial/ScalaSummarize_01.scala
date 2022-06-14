@@ -22,11 +22,4 @@ object ScalaSummarize_01 {
     println(s"$userName,$age")
 
   }
-
-
-
-
-
-
-
 }
