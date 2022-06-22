@@ -1,0 +1,5 @@
+*.js linguist-language=js
+*.css linguist-language=css
+*.html linguist-language=html
+*.scala linguist-language=scala
+*.java linguist-language=java
