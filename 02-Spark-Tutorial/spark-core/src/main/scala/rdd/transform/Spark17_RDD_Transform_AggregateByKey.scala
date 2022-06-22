@@ -2,14 +2,14 @@ package rdd.transform
 
 import org.apache.spark.{SparkConf, SparkContext}
 
-object Spark17_RDD_Transform_AggrateByKey {
+object Spark17_RDD_Transform_AggregateByKey {
 
   def main(args: Array[String]): Unit = {
 
     val conf = new SparkConf().setMaster("local[*]").setAppName("RDD Instance")
     val sc = new SparkContext(conf)
 
-    // TODO aggrateByKey 中初始值的用法
+    // TODO aggregateByKey 中初始值的用法
     // 分区内和分区间进行区分
     // reduceByKey：分区内和分区间的计算规则相同
     val keyValueRDD = sc.makeRDD(
