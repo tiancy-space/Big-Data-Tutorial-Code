@@ -68,7 +68,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.9.3</version>
+            <version>1.9.4</version>
         </dependency>
         <!--commons-dbutils 是 Apache 组织提供的一个开源 JDBC工具类库，它是对JDBC的简单封装-->
         <dependency>
