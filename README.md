@@ -5,3 +5,6 @@
 直接放一张赏心悦目的照片吧
 
 ![](https://tiancy-images.oss-cn-beijing.aliyuncs.com/img/202206091659440.jpg)
+
+
+测试本地IDEA能否同步到当前gitHub上的代码==========
