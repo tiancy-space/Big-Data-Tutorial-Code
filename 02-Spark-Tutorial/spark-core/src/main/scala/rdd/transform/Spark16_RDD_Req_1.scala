@@ -12,7 +12,7 @@ object Spark16_RDD_Req_1 {
 
         // TODO 统计出每一个省份每个广告被点击数量排行的Top3
         // 1. 读取原始数据
-        val fileDatas = sc.textFile("data/agent.log")
+        val fileDatas = sc.textFile("./02-Spark-Tutorial/data/agent.log")
 
         // 2. 过滤数据 (word)
         val prvToAdCount = fileDatas.map(
