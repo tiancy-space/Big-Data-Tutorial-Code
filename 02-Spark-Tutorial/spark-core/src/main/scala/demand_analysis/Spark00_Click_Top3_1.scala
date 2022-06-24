@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf, SparkContext}
  * @Author: tiancy
  * @Create: 2022/6/22
  */
-object Spark00_Click_Top3 {
+object Spark00_Click_Top3_1 {
   def main(args: Array[String]): Unit = {
     val conf: SparkConf = new SparkConf().setAppName("统计每个省份广告点击量的top3").setMaster("local[*]")
     val sc = new SparkContext(conf)
