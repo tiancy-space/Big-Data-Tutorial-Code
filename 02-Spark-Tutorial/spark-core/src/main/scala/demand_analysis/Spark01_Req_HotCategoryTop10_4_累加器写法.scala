@@ -156,7 +156,14 @@ object Spark01_Req_HotCategoryTop10_4_累加器写法 {
         case "pay" => currentCaseClass.payCount += 1
       }
       // 更新待返回的集合.
-      hcMap.updated(categoryId, currentCaseClass)
+      /*
+          TODO 这里需要注意:更新Map的方式上,这里有两个方法 update 和 updated 方法.
+            第一次写翻车了,死活没有数据,本来以为是逻辑有问题,查了又查,找了又找.
+            最后发现是IDEA提示的时候,更新集合的时候,都用了 updated.
+            update  : 其中update方法的作用是为map更新或添加一对新的键值对，这个添加是在原map上进行的，原map会改变
+            updated : updated方法也是更新或添加一对新的键值对，但是不改变原map，而是返回一个包含更新的新map
+       */
+      hcMap.update(categoryId, currentCaseClass)
     }
 
     /** 当前计算完成的计算结果 与另一台计算完成的集合 otherMap 进行相同key的value合并 */
@@ -173,7 +180,7 @@ object Spark01_Req_HotCategoryTop10_4_累加器写法 {
           currentCategoryCase.payCount += otherCategoryCaseClass.payCount
 
           //更新当前节点上的累加器对象中的返回值.
-          hcMap.updated(otherCategoryId, currentCategoryCase)
+          hcMap.update(otherCategoryId, currentCategoryCase)
         }
       }
     }
