@@ -96,7 +96,7 @@ object SparkSql01_编码的优化 {
      */
     val broadCastJoinDF: DataFrame = spark.sql(
       """
-        |select /*broadcast(ss)*/ sno,name,age,height
+        |select /*+ BRAODCASTJOIN(s) */ sno,name,age,height
         |from student_info s
         |join student_height ss on s.name = ss.sname
         |""".stripMargin)
