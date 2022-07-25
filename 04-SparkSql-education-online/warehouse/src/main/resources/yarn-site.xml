@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+  需要配置的内容: yarn容器相关 + 关闭虚拟检查 + 日志聚集.
+-->
+
+<configuration>
+	<!-- 指定MR走shuffle -->
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+    
+    <!-- 指定ResourceManager的地址-->
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>hadoop203</value>
+    </property>
+    
+    <!-- 环境变量的继承:保证nodemanager在启动的时候,能够知道我需要将哪些环境变量 继承给容器内部的进程.hadoop2不用配,hadoop3则必须写明白 -->
+    <property>
+        <name>yarn.nodemanager.env-whitelist</name>
+        <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+    </property>
+    
+    <!-- yarn容器允许分配的最大最小内存,也就是说我们当前的这个节点,nodemanager能够使用的内存大小. -->
+    <property>
+        <name>yarn.scheduler.minimum-allocation-mb</name>
+        <value>512</value>
+    </property>
+    <property>
+        <name>yarn.scheduler.maximum-allocation-mb</name>
+        <value>8192</value>
+    </property>
+    
+    <!-- yarn容器允许管理的物理内存大小,每台nodemanager的物理大小. -->
+    <property>
+        <name>yarn.nodemanager.resource.memory-mb</name>
+        <value>8192</value>
+    </property>
+    
+    <!-- 关闭yarn对物理内存和虚拟内存的限制检查,生产环境一定要开.一般开pmem,打开一项即可.-->
+    <property>
+        <name>yarn.nodemanager.pmem-check-enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value>
+    </property>
+    
+    <!-- 开启日志聚集功能 -->
+    <property>
+        <name>yarn.log-aggregation-enable</name>
+        <value>true</value>
+    </property>
+
+    <!-- 设置日志聚集服务器地址 -->
+    <property>  
+        <name>yarn.log.server.url</name>  
+        <value>http://hadoop202:19888/jobhistory/logs</value>
+    </property>
+
+    <!-- 设置日志保留时间为7天 -->
+    <property>
+        <name>yarn.log-aggregation.retain-seconds</name>
+        <value>604800</value>
+    </property>
+</configuration>
