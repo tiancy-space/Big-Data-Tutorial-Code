@@ -104,9 +104,12 @@ object SparkSql01_操作Hive表 {
         TODO 通过Spark SQL 操作外部数据源(Hive表)时,插入数据有两种方式: saveAstable 和 insertInto 的区别是什么？
           1、saveAstable : 如果待保存到表本身在Hive中不存在,则先创建表,在将当前 df里的数据写入到指定的表中. ==> 可以理解为将当前df中的数据,直接写入到不存在的表中.
                            如果待保存的表在hive表中存在,则会去比对schema信息,如果列字段个数不一致,则会将当前df内的表信息,直接覆盖原有的表信息以及表中的数据. 如果字段一致,则会按照mode()指定的方式,来插入数据.
-          2、insertInto : 表必须存在否则插入报错,并且df中的schema表字段 必须和 存在的表schema中表字段相同.
+                           还有一点: 通过DF往表中插入数据时,匹配字段的规则,按照字段名称匹配.
+          2、insertInto : 表必须存在否则插入报错,并且df中的schema表字段 必须和 存在的表schema中表字段相同.往指定的表中插入数据时,是按照建表语句中指定的字段顺序来插入的.
           两种模式如何使用: saveAstable是一个危险操作,只能用来建表,防止已经存在的表以及表中的数据被覆盖情况.
           3、两种模式使用案例 : 如果表不存在,则使用 `saveAstable`创建表. 如果存在则使用 `insertInto` 插入数据
+          4、两种模式来往Hive中插入数据的原因: 我的理解 做兼容,如果很早以前公司用了MR做了离线数仓,后面又切换到了Spark,以前的表结构不能动了,就需要采用 insertInto.
+          如果当前公司起步直接使用spark做离线数仓,那么可以直接使用 saveAsTable.
      */
     // 创建一张表 person表,里面字段 name String,age Int,salary Double,gender String . 用于演示上述的两种插入数据的方式 saveAstable和insertInto.
     spark.sql("drop table if exists ds_data.person")
