@@ -1,6 +1,5 @@
 package member.controller
 
-//import com.atguigu.member.bean.{DwsMember, DwsMember_Result}
 import member.service.DwsMemberService
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
@@ -24,7 +23,9 @@ object DwsMemberController {
     ssc.hadoopConfiguration.set("dfs.nameservices", "nameservice1")
     HiveUtil.openDynamicPartition(sparkSession) //开启动态分区
     HiveUtil.openCompression(sparkSession) //开启压缩
+    /** 通过SQL的形式聚合用户宽表 */
     DwsMemberService.importMember(sparkSession, "20190722") //根据用户信息聚合用户表数据
+    /** 通过 DSL语法来实现6张宽表进行聚合 */
     //    DwsMemberService.importMemberUseApi(sparkSession, "20190722")
   }
 }
